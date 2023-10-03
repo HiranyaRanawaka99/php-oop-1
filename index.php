@@ -1,24 +1,6 @@
 <?php 
 
-require_once __DIR__. '/Models/Movie.php';
-require_once __DIR__ . '/Models/Genere.php';
-require __DIR__ .'/data/moive_db.php';
-
-// $new_movies = [];
-// $new_genres = [];
-
-// foreach($movies_data as $movie_data) {
-
-//     foreach($movie_data['genres'] as $genre) {
-//         $new_genres [] = new Genre($genre);
-//     }
-
-
-//     $new_movies[] = new Movie($movie_data['title'], $movie_data['genres'], $movie_data['length']);
-// }
-
-// var_dump($new_movies);
-
+require __DIR__ .'/data/movie_db.php';
 ?>
 
 <!DOCTYPE html>
@@ -35,18 +17,31 @@ require __DIR__ .'/data/moive_db.php';
     <h1 class="text-danger">FILM BASE</h1>
         <div class="row">
             <div class="col">
-            <?php foreach($movies_data as $movie_data): ?>
+            <?php foreach($movies_list as $movie): ?>
             <div class="card mt-2">
                 <div class="card-body">
-                    <h2><?= $movie_data['title']?> </h2>
-                    
-                    <p><b>Genere: </b> <?= implode(' - ', $movie_data ['genres'])?> </p>
-                   
-                    <p> <b>Durata: </b><?= $movie_data['length']?></p>
+                    <p> 
+                        <?= $movie->get_details()?>
+                    </p>
                 </div>
             </div>
             <?php endforeach; ?> 
+        </div>
+    </div>  
+
+    <h1 class="text-danger mt-5">SERIES BASE</h1>
+        <div class="row">
+            <div class="col">
+            <?php foreach($series_list as $serie): ?>
+            <div class="card mt-2">
+                <div class="card-body">
+                    <p> 
+                        <?= $serie->get_details()?>
+                    </p>
+                </div>
             </div>
-        </div>  
+            <?php endforeach; ?> 
+        </div>
+    </div>  
 </body>
 </html>

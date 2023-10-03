@@ -1,41 +1,29 @@
 <?php 
 
-require_once __DIR__. '/Genere.php';
-class Movie 
+class Movie extends Production
 {
-    public $title;
-    public $genres;
-    public $length;
+    public $published_year;
+    public $running_time;
 
     public function __construct(
         // valore di default = qualcosa,
         string $title = null,
         array $genres = null,
-        int $length = null,  
+        float $vote = null,
+        int $published_year= null,
+        int $running_time = null,
     ) {
-        $this->title = $title;
-        $this->genres = $genres;
-        $this->length = $length;
+        parent :: __construct($title, $genres, $vote);
+        $this->published_year = $published_year;
+        $this->running_time = $running_time;
     }
+        public function get_details() {
 
-    public function get_genres_text() {
-        $genres_text = '';
-        foreach($this->genres as $genre) {
-            $genres_text .= $genre->name . ' - ';
+            return parent::get_details() . 
+            "<b> Anno di pubblicazione : </b> $this->published_year <br>
+            <b> Durata : </b> $this->running_time <br>";
         }
-        return $genres_text;
     }
-
-    // NON UTILIZZATA
-    public function transform_in_string() {
-        implode('-', $this->genres );
-    }
-
-    // NON UTILIZZATA
-    public function get_details() {
-        $genres_text = $this->get_details();
-        return "Titolo: $this->title, Durata: $this->length, Generi: $genres_text";
-    }
-}
-
-?>
+    
+    ?>
+   
