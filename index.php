@@ -4,18 +4,18 @@ require_once __DIR__. '/Models/Movie.php';
 require_once __DIR__ . '/Models/Genere.php';
 require __DIR__ .'/data/moive_db.php';
 
-$new_movies = [];
-$new_genres = [];
+// $new_movies = [];
+// $new_genres = [];
 
-foreach($movies_data as $movie_data) {
+// foreach($movies_data as $movie_data) {
 
-    foreach($movie_data['genres'] as $genre) {
-        $new_genres [] = new Genre($genre);
-    }
+//     foreach($movie_data['genres'] as $genre) {
+//         $new_genres [] = new Genre($genre);
+//     }
 
 
-    $new_movies[] = new Movie($movie_data['title'], $movie_data['genres'], $movie_data['length']);
-}
+//     $new_movies[] = new Movie($movie_data['title'], $movie_data['genres'], $movie_data['length']);
+// }
 
 // var_dump($new_movies);
 
